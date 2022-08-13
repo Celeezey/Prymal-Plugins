@@ -1,4 +1,5 @@
-# Plugins
-The Unethical plugins are actively maintained and should be working.
+# Prymal Plugins
+These plugins are poorly written & probably broken, But im doing the best I can hehe.
 
-The Hoot plugins are not maintained, they were created purely to experiment with and should be deemed unstable.
+I'll eventually turn these into **Super Premium V.I.P Elite Diamond Deluxe** edition plugins
+that will one day become better than spiced bread.
