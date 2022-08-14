@@ -3,7 +3,6 @@ package net.unethicalite.plugins.gearsets;
 import com.google.inject.Provides;
 import com.google.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
-import net.runelite.api.Client;
 import net.runelite.api.mixins.Inject;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.plugins.Plugin;
@@ -21,12 +20,10 @@ import net.runelite.client.input.KeyManager;
 
 public class gearsets extends Plugin
 {
-
     @Provides
-    gearsetsconfig provideConfig(ConfigManager configManager) {return configManager.getConfig(gearsetsconfig.class);}
-
-    @Inject
-    private Client client;
+    gearsetsconfig getConfig(ConfigManager configManager){
+        return configManager.getConfig(gearsetsconfig.class);
+    }
     @Inject
     private KeyManager keyManager;
     @Inject
@@ -42,9 +39,7 @@ public class gearsets extends Plugin
 
         @Override
         public void hotkeyPressed(){
-            if (!Bank.isOpen()) {
-                MessageUtils.addMessage("Open your bank, Then press your hotkey.");
-            }
+            if (!Bank.isOpen()) { MessageUtils.addMessage("Open your bank, Then press your hotkey."); }
         }
     };
 
