@@ -10,24 +10,24 @@ import net.runelite.client.config.Keybind;
 public interface gearsetsconfig extends Config {
 
     @ConfigItem(
-            keyName = "gearset1",
+            keyName = "gearList1",
             name = "Gear set 1",
             description = "First Set",
             position = 10
 
     )
-    default String gearset1() {
+    default String gearList1() {
         return "Granite Maul, Fire Cape, Example item, Example item";
     }
 
     @ConfigItem(
-            keyName = "gearset2",
+            keyName = "gearList2",
             name = "Second Set",
             description = "Second Set",
             position = 11
 
     )
-    default String gearset2() {
+    default String gearList2() {
         return "Dragon Throwing Knives, Book of Law, Example item, Example item";
     }
 
