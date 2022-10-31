@@ -10,6 +10,7 @@ import net.runelite.client.input.KeyManager;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.util.HotkeyListener;
+import net.unethicalite.api.items.Inventory;
 import org.pf4j.Extension;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -31,7 +32,6 @@ public class gearsets extends Plugin
     private KeyManager keyManager;
     @Inject
     private gearsetsconfig config;
-    public Item item;
 
 
     List<String> gearList1 = Arrays.stream(config.gearList1().split(","))
@@ -40,7 +40,8 @@ public class gearsets extends Plugin
     List<String> gearList2 = Arrays.stream(config.gearList2().split(","))
             .collect(Collectors.toList());
 
-    public HashMap<String, Item> gearMap1 = (HashMap<String, Item>) gearList1.stream();
+    HashMap<String, Item> gearMap1 = new HashMap<String, Item>();
+
 
 
 
@@ -48,6 +49,9 @@ public class gearsets extends Plugin
     @Override
     protected void startUp() {
         keyManager.registerKeyListener(hotkeyListener);
+        for (String i : gearList1) {
+            gearMap1.put(i, Inventory.getFirst(i));
+        }
     }
 
     @Override
