@@ -12,6 +12,8 @@ import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.util.HotkeyListener;
 import net.unethicalite.api.items.Inventory;
 import org.pf4j.Extension;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -33,21 +35,19 @@ public class gearsets extends Plugin
     @Inject
     private gearsetsconfig config;
 
+    //List<String> gearList1 = new ArrayList<>();
 
     List<String> gearList1 = Arrays.stream(config.gearList1().split(","))
             .collect(Collectors.toList());
 
-    List<String> gearList2 = Arrays.stream(config.gearList2().split(","))
-            .collect(Collectors.toList());
+    //List<String> gearList2 = Arrays.stream(config.gearList2().split(","))
+            //.collect(Collectors.toList());
 
     HashMap<String, Item> gearMap1 = new HashMap<String, Item>();
 
-
-
-
-
     @Override
-    protected void startUp() {
+    protected void startUp()
+    {
         keyManager.registerKeyListener(hotkeyListener);
         for (String i : gearList1) {
             gearMap1.put(i, Inventory.getFirst(i));
@@ -55,14 +55,16 @@ public class gearsets extends Plugin
     }
 
     @Override
-    public void shutDown() {
+    public void shutDown()
+    {
         keyManager.unregisterKeyListener(hotkeyListener);
     }
 
     private final HotkeyListener hotkeyListener = new HotkeyListener(() -> config.toggleKeyBind()) {
 
         @Override
-        public void hotkeyPressed(){
+        public void hotkeyPressed()
+        {
             for (Item i : gearMap1.values()) {
                 i.interact(x -> x != null && (x.toLowerCase().contains("wear")
                         || x.toLowerCase().contains("wield")

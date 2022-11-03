@@ -16,8 +16,9 @@ public interface gearsetsconfig extends Config {
             position = 10
 
     )
-    default String gearList1() {
-        return "Granite Maul, Fire Cape, Example item, Example item";
+    default String gearList1()
+    {
+        return "Shortbow, Amulet of accuracy";
     }
 
     @ConfigItem(
@@ -27,8 +28,9 @@ public interface gearsetsconfig extends Config {
             position = 11
 
     )
-    default String gearList2() {
-        return "Dragon Throwing Knives, Book of Law, Example item, Example item";
+    default String gearList2()
+    {
+        return "";
     }
 
 
@@ -38,7 +40,8 @@ public interface gearsetsconfig extends Config {
             description = "Hotkey to switch between gear sets",
             position = 12
     )
-    default Keybind toggleKeyBind() {
+    default Keybind toggleKeyBind()
+    {
         return Keybind.NOT_SET;
     }
 }
