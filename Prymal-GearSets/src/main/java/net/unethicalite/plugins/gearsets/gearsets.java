@@ -10,11 +10,14 @@ import net.runelite.client.input.KeyManager;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.util.HotkeyListener;
+import net.unethicalite.api.commons.Time;
 import net.unethicalite.api.items.Inventory;
+import net.unethicalite.api.utils.MessageUtils;
 import org.pf4j.Extension;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Extension
@@ -25,7 +28,8 @@ import java.util.stream.Collectors;
 public class gearsets extends Plugin
 {
     @Provides
-    gearsetsconfig getConfig(ConfigManager configManager){
+    gearsetsconfig getConfig(ConfigManager configManager)
+    {
         return configManager.getConfig(gearsetsconfig.class);
     }
     @Inject
@@ -33,20 +37,16 @@ public class gearsets extends Plugin
     @Inject
     private gearsetsconfig config;
 
-    //List<String> gearList1 = new ArrayList<>();
-
-    List<String> gearList1 = Arrays.stream(config.gearSet1().split(","))
-            .collect(Collectors.toList());
-
-    //List<String> gearList2 = Arrays.stream(config.gearSet2().split(","))
-            //.collect(Collectors.toList());
-
     HashMap<String, Item> gearMap1 = new HashMap<String, Item>();
 
     @Override
-    protected void startUp()
+    public void startUp()
     {
+        List<String> gearList1 = Arrays.stream(config.gearSet1().split(",", 0))
+                .collect(Collectors.toList());
+
         keyManager.registerKeyListener(hotkeyListener);
+
         for (String i : gearList1) {
             gearMap1.put(i, Inventory.getFirst(i));
         }
@@ -64,9 +64,12 @@ public class gearsets extends Plugin
         public void hotkeyPressed()
         {
             for (Item i : gearMap1.values()) {
-                i.interact(x -> x != null && (x.toLowerCase().contains("wear")
-                        || x.toLowerCase().contains("wield")
-                        || x.toLowerCase().contains("equip")));
+                MessageUtils.addMessage(i.toString());
+                i.interact(x -> x != null && (x.contains("Wear")
+                        || x.contains("Wield")
+                        || x.contains("Equip")));
+                Time.sleep(45, 65);
+                return;
 
             }
         }

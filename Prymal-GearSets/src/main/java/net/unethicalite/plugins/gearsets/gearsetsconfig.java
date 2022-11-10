@@ -18,7 +18,7 @@ public interface gearsetsconfig extends Config {
     )
     default String gearSet1()
     {
-        return "Shortbow, Amulet of accuracy";
+        return "";
     }
 
     @ConfigItem(
