@@ -37,19 +37,21 @@ public class gearsets extends Plugin
     @Inject
     private gearsetsconfig config;
 
-    HashMap<String, Item> gearMap1 = new HashMap<String, Item>();
+    Map<String, Item> gearMap1;
+
+
 
     @Override
     public void startUp()
     {
-        List<String> gearList1 = Arrays.stream(config.gearSet1().split(",", 0))
-                .collect(Collectors.toList());
-
         keyManager.registerKeyListener(hotkeyListener);
 
-        for (String i : gearList1) {
-            gearMap1.put(i, Inventory.getFirst(i));
+        String gearList1 = config.gearSet1();
+
+        for (String item : gearList1.split(",")) {
+            gearMap1.put(item, Inventory.getFirst(item));
         }
+
     }
 
     @Override
@@ -58,7 +60,7 @@ public class gearsets extends Plugin
         keyManager.unregisterKeyListener(hotkeyListener);
     }
 
-    private final HotkeyListener hotkeyListener = new HotkeyListener(() -> config.toggleKeyBind()) {
+    public final HotkeyListener hotkeyListener = new HotkeyListener(() -> config.toggleKeyBind()) {
 
         @Override
         public void hotkeyPressed()
