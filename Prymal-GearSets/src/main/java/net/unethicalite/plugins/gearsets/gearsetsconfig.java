@@ -7,7 +7,8 @@ import net.runelite.client.config.ConfigItem;
 import java.awt.event.KeyEvent;
 
 @ConfigGroup("gearsets")
-public interface gearsetsconfig extends Config {
+public interface gearsetsconfig extends Config
+{
 
     @ConfigItem(
             keyName = "gearSet1",
@@ -45,4 +46,3 @@ public interface gearsetsconfig extends Config {
         return KeyEvent.getKeyText(KeyEvent.VK_X);
     }
 }
-
