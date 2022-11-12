@@ -6,13 +6,15 @@ import net.runelite.client.config.ConfigGroup;
 import net.runelite.client.config.ConfigItem;
 import net.runelite.client.config.Keybind;
 
+import java.awt.event.KeyEvent;
+
 @ConfigGroup("gearsets")
 public interface gearsetsconfig extends Config {
 
     @ConfigItem(
             keyName = "gearSet1",
             name = "Gear set 1",
-            description = "First Set",
+            description = "First Set of gear",
             position = 10
 
     )
@@ -24,7 +26,7 @@ public interface gearsetsconfig extends Config {
     @ConfigItem(
             keyName = "gearSet2",
             name = "Second Set",
-            description = "Second Set",
+            description = "Second Set of gear",
             position = 11
 
     )
@@ -35,14 +37,14 @@ public interface gearsetsconfig extends Config {
 
 
     @ConfigItem(
-            keyName = "toggleKeyBind",
+            keyName = "toggleHotKey",
             name = "Switch Gear Hotkey",
             description = "Hotkey to switch between gear sets",
             position = 12
     )
-    default Keybind toggleKeyBind()
+    default String toggleHotKey()
     {
-        return Keybind.NOT_SET;
+        return KeyEvent.getKeyText(KeyEvent.VK_X);
     }
 }
 
