@@ -6,21 +6,15 @@ import com.google.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
 import net.runelite.api.GameState;
-import net.runelite.api.Item;
 import net.runelite.client.callback.ClientThread;
-import net.runelite.client.config.Config;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.input.KeyManager;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
-import net.runelite.client.util.HotkeyListener;
-import net.unethicalite.api.commons.Time;
 import net.unethicalite.api.items.Inventory;
-import net.unethicalite.api.utils.MessageUtils;
 import org.pf4j.Extension;
 
 import java.awt.event.KeyEvent;
-import java.util.Map;
 
 @Extension
 @PluginDescriptor(name = "Prymal GearSets", description = "Press your configured hotkeys to withdraw your sets of gear.", enabledByDefault = false)
@@ -79,12 +73,14 @@ public class gearsets extends Plugin implements net.runelite.client.input.KeyLis
     }
 
     @Override
-    public void keyTyped(KeyEvent e) {
+    public void keyTyped(KeyEvent e)
+    {
 
     }
 
     @Override
-    public void keyReleased(KeyEvent e) {
+    public void keyReleased(KeyEvent e)
+    {
 
     }
 
