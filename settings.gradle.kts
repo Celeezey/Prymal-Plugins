@@ -25,7 +25,7 @@
 
 rootProject.name = "Prymal-Plugins"
 
-include("Prymal-GearSets")
+include("Prymal-Keys")
 //include("hoot-fighter")
 //include("hoot-tempoross")
 //include("hoot-blackjack")

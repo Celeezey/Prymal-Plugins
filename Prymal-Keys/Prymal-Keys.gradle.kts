@@ -1,7 +1,7 @@
-version = "0.0.1"
+version = "1.0.0"
 
-project.extra["PluginName"] = "Prymal GearSets"
-project.extra["PluginDescription"] = "Press your configured hotkeys to withdraw the lists of gear."
+project.extra["PluginName"] = "Prymal Keys"
+project.extra["PluginDescription"] = "Press hotkey to do the thing"
 
 tasks {
     jar {
